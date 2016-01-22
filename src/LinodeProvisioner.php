@@ -28,7 +28,7 @@ class LinodeProvisioner extends Provisioner
             $parameters->get('paymentterm') ? $options['paymentterm'] = $parameters->get('paymentterm') : null;
 
             $command->setOptions($options);
-            return $this->linode->execute($command);
+            return $this->linode->execute($command)['LinodeID'];
         } catch (\Exception $e) {
             throw $e;
         }
@@ -101,7 +101,7 @@ class LinodeProvisioner extends Provisioner
             $parameters->get('paymentterm') ? $options['paymentterm'] = $parameters->get('paymentterm') : null;
 
             $command->setOptions($options);
-            return $this->linode->execute($command);
+            return $this->linode->execute($command)['LinodeID'];
         } catch (\Exception $e) {
             throw $e;
         }
