@@ -178,9 +178,10 @@ class LinodeProvisioner extends Provisioner
             $response = $this->linode->execute(new AvailCommand('datacenters', $args));
             foreach ($response as $item) {
                 $list[] = [
-                    'datacenterid' => $item['DATACENTERID'],
+                    'id' => $item['DATACENTERID'],
                     'location' => $item['LOCATION'],
-                    'abbr' => $item['ABBR']
+                    'abbr' => $item['ABBR'],
+                    'label' => $item['LOCATION'].' '.$item['ABBR']
                 ];
             }
             return $list;
